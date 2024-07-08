@@ -7,6 +7,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .low-inventory {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -22,7 +29,7 @@
             </thead>
             <tbody>
                 <?php foreach ($inventories as $inventory): ?>
-                <tr>
+                <tr class="<?= $inventory['quantity'] < 100 ? 'low-inventory' : ''; ?>">
                     <td><?= $inventory['id']; ?></td>
                     <td><?= $inventory['item_name']; ?></td>
                     <td><?= $inventory['quantity']; ?></td>
@@ -35,6 +42,7 @@
             </tbody>
         </table>
         <button class="btn btn-primary" data-toggle="modal" data-target="#addInventoryModal">Add Inventory</button>
+        <canvas id="inventoryChart"></canvas>
     </div>
 
     <!-- Add Inventory Modal -->
@@ -100,5 +108,50 @@
         </div>
     </div>
     <?php endforeach; ?>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('inventoryChart').getContext('2d');
+            var inventories = <?= json_encode($inventories); ?>;
+            var labels = inventories.map(function(inventory) {
+                return inventory.item_name;
+            });
+            var data = inventories.map(function(inventory) {
+                return inventory.quantity;
+            });
+            var backgroundColors = inventories.map(function(inventory) {
+                return inventory.quantity < 100 ? 'rgba(255, 99, 132, 0.2)' : 'rgba(75, 192, 192, 0.2)';
+            });
+            var borderColors = inventories.map(function(inventory) {
+                return inventory.quantity < 100 ? 'rgba(255, 99, 132, 1)' : 'rgba(75, 192, 192, 1)';
+            });
+
+            var inventoryChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Quantity',
+                        data: data,
+                        backgroundColor: backgroundColors,
+                        borderColor: borderColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -116,4 +116,28 @@ class DoctorController extends BaseController
         $treatmentModel->save($data);
         return redirect()->to('/doctor/appointments')->with('message', 'Treatment added successfully');
     }
+    public function monthlyIncome()
+    {
+        $treatmentModel = new TreatmentModel();
+        $doctor_id = session()->get('user_id'); // Assuming doctor ID is stored in session
+
+        // Query to get monthly income
+        $query = $treatmentModel->select('SUM(price) as total_income, MONTH(created_at) as month')
+            ->where('doctor_id', $doctor_id)
+            ->groupBy('month')
+            ->get();
+
+        $results = $query->getResultArray();
+
+        $income_data = [];
+        foreach ($results as $result) {
+            $income_data[$result['month']] = $result['total_income'];
+        }
+
+        $data = [
+            'income_data' => $income_data
+        ];
+
+        return view('doctor/monthly_income', $data);
+    }
 }

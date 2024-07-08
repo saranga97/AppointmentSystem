@@ -33,6 +33,7 @@
             <a href="<?= base_url('/doctor/appointments'); ?>" class="btn btn-primary">Manage Appointments</a>
             <a href="<?= base_url('/doctor/patients'); ?>" class="btn btn-primary">Track Patients</a>
             <a href="<?= base_url('/doctor/inventories'); ?>" class="btn btn-primary">Manage Inventory</a>
+            <a href="<?= base_url('/doctor/monthly_income'); ?>" class="btn btn-primary">View Monthly Income</a>
             <a href="<?= base_url('/auth/logout'); ?>" class="btn btn-danger">Logout</a>
         </div>
     </div>

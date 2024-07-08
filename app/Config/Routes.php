@@ -53,6 +53,8 @@ $routes->group('doctor', ['filter' => 'auth'], function ($routes) {
     $routes->get('inventories', 'DoctorController::inventories');
     $routes->get('add_treatment/(:num)', 'DoctorController::addTreatment/$1');
     $routes->post('store_treatment', 'DoctorController::storeTreatment');
+    $routes->get('monthly_income', 'DoctorController::monthlyIncome');
+
 });
 
 
