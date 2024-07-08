@@ -9,6 +9,7 @@ use App\Models\AppointmentModel;
 use App\Models\EnquiryModel;
 use App\Models\WoundCareModel;
 use App\Models\NotificationModel;
+use App\Models\UserModel;
 
 class PatientController extends BaseController
 {
@@ -16,6 +17,7 @@ class PatientController extends BaseController
     {
         return view('patient/dashboard');
     }
+
     public function notifications()
     {
         $notificationModel = new NotificationModel();
@@ -30,13 +32,6 @@ class PatientController extends BaseController
         return view('patient/treatment_history', $data);
     }
 
-    // public function recommendations()
-    // {
-    //     $recommendationModel = new RecommendationModel();
-    //     $data['recommendations'] = $recommendationModel->where('patient_id', session()->get('user_id'))->findAll();
-    //     return view('patient/recommendations', $data);
-    // }
-
     public function paymentHistory()
     {
         $paymentModel = new PaymentModel();
@@ -49,6 +44,19 @@ class PatientController extends BaseController
         return view('patient/make_payment');
     }
 
+    public function processPayment()
+    {
+        $treatmentModel = new TreatmentModel();
+        $treatmentId = $this->request->getPost('treatment_id');
+
+        // Validate payment details (in a real application, you should also validate and process the payment here)
+
+        // Update treatment status to 'paid'
+        $treatmentModel->update($treatmentId, ['payment_status' => 'paid']);
+
+        return $this->response->setJSON(['status' => 'success']);
+    }
+
     public function woundDressingAlerts()
     {
         return view('patient/wound_dressing_alerts');
@@ -56,23 +64,25 @@ class PatientController extends BaseController
 
     public function appointments()
     {
-        $db = \Config\Database::connect();
-        $builder = $db->table('appointments');
-        $builder->select('appointments.*, users.username as doctor_name')
-            ->join('users', 'users.id = appointments.doctor_id')
-            ->where('appointments.patient_id', session()->get('user_id'));
-        $query = $builder->get();
-        $data['appointments'] = $query->getResultArray();
+        $appointmentModel = new AppointmentModel();
+        $userModel = new UserModel();
 
+        // Join appointments with users to get doctor name
+        $appointments = $appointmentModel
+            ->select('appointments.*, users.username as doctor_name')
+            ->join('users', 'users.id = appointments.doctor_id')
+            ->where('appointments.patient_id', session()->get('user_id'))
+            ->findAll();
+
+        $data['appointments'] = $appointments;
         return view('patient/appointments', $data);
     }
-
 
     public function cancelAppointment($id)
     {
         $appointmentModel = new AppointmentModel();
         $appointmentModel->update($id, ['status' => 'Cancelled']);
-        return redirect()->to('/patient/appointments')->with('message', 'Appointment Cancelled successfully');
+        return redirect()->to('/patient/appointments')->with('message', 'Appointment cancelled successfully');
     }
 
     public function enquiries()
@@ -112,7 +122,6 @@ class PatientController extends BaseController
         $data['treatments'] = $this->getTreatmentsWithDoctor($patient_id);
         return view('patient/recommendations', $data);
     }
-
 
     private function getTreatmentsWithDoctor($patient_id)
     {

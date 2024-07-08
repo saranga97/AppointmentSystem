@@ -80,19 +80,19 @@ $routes->group('assistant', ['filter' => 'auth'], function ($routes) {
 // Routes for Patient
 $routes->group('patient', ['filter' => 'auth'], function ($routes) {
     $routes->get('dashboard', 'PatientController::dashboard');
+    $routes->get('notifications', 'PatientController::notifications');
     $routes->get('treatment_history', 'PatientController::treatmentHistory');
-    $routes->get('recommendations', 'PatientController::recommendations');
     $routes->get('payment_history', 'PatientController::paymentHistory');
     $routes->get('make_payment', 'PatientController::makePayment');
+    $routes->post('process_payment', 'PatientController::processPayment');
     $routes->get('wound_dressing_alerts', 'PatientController::woundDressingAlerts');
     $routes->get('appointments', 'PatientController::appointments');
     $routes->post('cancel_appointment/(:num)', 'PatientController::cancelAppointment/$1');
-    $routes->get('notifications', 'PatientController::notifications');
     $routes->get('enquiries', 'PatientController::enquiries');
-    $routes->post('send_enquiry', 'PatientController::sendEnquiry');  // Route for sending enquiry
+    $routes->post('send_enquiry', 'PatientController::sendEnquiry');
     $routes->get('wound_care_knowledge', 'PatientController::woundCareKnowledge');
+    $routes->get('recommendations', 'PatientController::recommendations');
 });
-
 
 // Routes for Appointments
 $routes->group('appointments', ['filter' => 'auth'], function ($routes) {

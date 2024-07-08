@@ -67,6 +67,20 @@ class DoctorController extends BaseController
             'created_at' => date('Y-m-d H:i:s')
         ]);
 
+        // Add a notification for one day before the appointment if approved
+        if ($status == 'Approved') {
+            $appointmentDate = new \DateTime($appointment['appointment_date']);
+            $notificationDate = clone $appointmentDate;
+            $notificationDate->modify('-1 day');
+
+            $message = "Tomorrow appointment with Dr. " . $doctor['username'] . " at " . $appointmentDate->format('H:i');
+            $notificationModel->insert([
+                'user_id' => $patientId,
+                'message' => $message,
+                'created_at' => $notificationDate->format('Y-m-d H:i:s')
+            ]);
+        }
+
         return redirect()->to('/doctor/appointments')->with('message', 'Appointment status updated successfully');
     }
 
@@ -95,7 +109,8 @@ class DoctorController extends BaseController
         $data = [
             'patient_id' => $this->request->getPost('patient_id'),
             'doctor_id' => session()->get('user_id'),  // Ensure this is from the session
-            'description' => $this->request->getPost('description')
+            'description' => $this->request->getPost('description'),
+            'price' => $this->request->getPost('price')  // Include the price
         ];
 
         $treatmentModel->save($data);

@@ -32,11 +32,12 @@
             <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/recommendations'); ?>">Check Recommendations and Prescriptions</a>
             <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/payment_history'); ?>">Generate Payment Receipts and Track Payment History</a>
             <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/make_payment'); ?>">Proceed with Payments</a>
-            <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/wound_dressing_alerts'); ?>">Get Alerts on Wound Dressing Changes</a>
+            <!-- <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/wound_dressing_alerts'); ?>">Get Alerts on Wound Dressing Changes</a> -->
             <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/appointments/create'); ?>">Make an Appointment</a>
             <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/appointments'); ?>">View and Cancel Appointments</a>
             <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/enquiries'); ?>">Send Enquiries</a>
             <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/wound_care_knowledge'); ?>">Update Knowledge on Wound Care</a>
+            <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/notifications'); ?>">View Notifications</a> <!-- New Link -->
             <a class="nav-link bg-danger text-white mb-2 p-3" href="<?= base_url('/auth/logout'); ?>">Logout</a>
         </nav>
     </div>
