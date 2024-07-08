@@ -7,6 +7,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -36,6 +38,8 @@
         </table>
         <button class="btn btn-primary" data-toggle="modal" data-target="#addDoctorModal">Add Doctor</button>
         <button class="btn btn-primary" data-toggle="modal" data-target="#addAssistantModal">Add Assistant</button>
+        <canvas id="userRoleChart"></canvas>
+        <a href="<?= base_url('dashboard'); ?>" class="btn btn-secondary btn-block mt-3">Back to Dashboard</a>
     </div>
 
     <!-- Add Doctor Modal -->
@@ -127,5 +131,42 @@
         </div>
     </div>
     <?php endforeach; ?>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('userRoleChart').getContext('2d');
+            var users = <?= json_encode($users); ?>;
+            var roleCounts = users.reduce(function(counts, user) {
+                counts[user.role] = (counts[user.role] || 0) + 1;
+                return counts;
+            }, {});
+
+            var labels = Object.keys(roleCounts);
+            var data = Object.values(roleCounts);
+
+            var userRoleChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Count of Users by Role',
+                        data: data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

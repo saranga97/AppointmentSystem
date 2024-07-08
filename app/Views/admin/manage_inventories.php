@@ -43,6 +43,7 @@
         </table>
         <button class="btn btn-primary" data-toggle="modal" data-target="#addInventoryModal">Add Inventory</button>
         <canvas id="inventoryChart"></canvas>
+        <a href="<?= base_url('dashboard'); ?>" class="btn btn-secondary btn-block mt-3">Back to Dashboard</a>
     </div>
 
     <!-- Add Inventory Modal -->

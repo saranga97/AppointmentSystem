@@ -38,6 +38,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <a href="<?= base_url('dashboard'); ?>" class="btn btn-secondary btn-block mt-3">Back to Dashboard</a>
     </div>
 
     <!-- Edit Appointment Modal -->
