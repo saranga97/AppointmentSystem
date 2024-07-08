@@ -23,9 +23,9 @@
             <div class="form-group">
                 <label for="editStatus">Status</label>
                 <select class="form-control" id="editStatus" name="status" required>
-                    <option value="pending" <?= $appointment['status'] == 'pending' ? 'selected' : ''; ?>>pending</option>
-                    <option value="completed" <?= $appointment['status'] == 'completed' ? 'selected' : ''; ?>>Completed</option>
-                    <option value="cancelled" <?= $appointment['status'] == 'cancelled' ? 'selected' : ''; ?>>Cancelled</option>
+                    <option value="Pending" <?= $appointment['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
+                    <option value="Completed" <?= $appointment['status'] == 'Completed' ? 'selected' : ''; ?>>Completed</option>
+                    <option value="Cancelled" <?= $appointment['status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Update Appointment</button>

@@ -1467,7 +1467,7 @@ class Email
                 $temp .= $char;
             }
 
-            // Add our completed line to the output
+            // Add our Completed line to the output
             $output .= $temp . $this->CRLF;
         }
 
@@ -1863,7 +1863,7 @@ class Email
     }
 
     /**
-     * Shortcut to send RSET or QUIT depending on keep-alive
+     * Shortcut to send RSET or QUIT dePending on keep-alive
      *
      * @return void
      */

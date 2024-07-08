@@ -48,8 +48,8 @@ class Parser
      *
      * BEGIN: Before normal parsing
      * SUCCESS: After successful parsing
-     * RECURSION: After parsing cancelled by recursion
-     * DEPTH_LIMIT: After parsing cancelled by depth limit
+     * RECURSION: After parsing Cancelled by recursion
+     * DEPTH_LIMIT: After parsing Cancelled by depth limit
      * COMPLETE: SUCCESS | RECURSION | DEPTH_LIMIT
      *
      * While a plugin's getTriggers may return any of these

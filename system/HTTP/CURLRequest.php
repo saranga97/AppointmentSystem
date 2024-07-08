@@ -325,7 +325,7 @@ class CURLRequest extends OutgoingRequest
 
     /**
      * If the $url is a relative URL, will attempt to create
-     * a full URL by prepending $this->baseURI to it.
+     * a full URL by prePending $this->baseURI to it.
      */
     protected function prepareURL(string $url): string
     {

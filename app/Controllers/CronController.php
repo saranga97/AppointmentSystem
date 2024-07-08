@@ -14,10 +14,10 @@ class CronController extends Controller
         $notificationModel = new NotificationModel();
 
         $tomorrow = date('Y-m-d', strtotime('+1 day'));
-        $appointments = $appointmentModel->where('status', 'approved')->where('appointment_date', $tomorrow)->findAll();
+        $appointments = $appointmentModel->where('status', 'Approved')->where('appointment_date', $tomorrow)->findAll();
 
         foreach ($appointments as $appointment) {
-            $message = "Reminder: You have an appointment pending for tomorrow.";
+            $message = "Reminder: You have an appointment Pending for tomorrow.";
             $notificationModel->insert([
                 'user_id' => $appointment['patient_id'],
                 'message' => $message

@@ -32,15 +32,15 @@
                             <td>
                                 <form action="<?= base_url('/doctor/update_appointment_status/' . $appointment['id']); ?>" method="post">
                                     <select name="status" onchange="this.form.submit()">
-                                        <option value="Pending" <?= $appointment['status'] == 'pending' ? 'selected' : ''; ?>>Pending</option>
-                                        <option value="Approved" <?= $appointment['status'] == 'approved' ? 'selected' : ''; ?>>Approved</option>
-                                        <option value="Completed" <?= $appointment['status'] == 'completed' ? 'selected' : ''; ?>>Completed</option>
-                                        <option value="Cancelled" <?= $appointment['status'] == 'cancelled' ? 'selected' : ''; ?>>Cancelled</option>
+                                        <option value="Pending" <?= $appointment['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
+                                        <option value="Approved" <?= $appointment['status'] == 'Approved' ? 'selected' : ''; ?>>Approved</option>
+                                        <option value="Completed" <?= $appointment['status'] == 'Completed' ? 'selected' : ''; ?>>Completed</option>
+                                        <option value="Cancelled" <?= $appointment['status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
                                     </select>
                                 </form>
                             </td>
                             <td>
-                                <?php if ($appointment['status'] == 'completed'): ?>
+                                <?php if ($appointment['status'] == 'Completed'): ?>
                                     <a href="<?= base_url('/doctor/add_treatment/' . $appointment['id']); ?>" class="btn btn-primary btn-sm">Add Treatment</a>
                                 <?php endif; ?>
                             </td>

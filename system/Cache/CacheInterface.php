@@ -85,7 +85,7 @@ interface CacheInterface
      * Returns information on the entire cache.
      *
      * The information returned and the structure of the data
-     * varies depending on the handler.
+     * varies dePending on the handler.
      *
      * @return array|false|object|null
      */

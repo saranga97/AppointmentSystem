@@ -202,7 +202,7 @@ class MockCache extends BaseHandler implements CacheInterface
      * Returns information on the entire cache.
      *
      * The information returned and the structure of the data
-     * varies depending on the handler.
+     * varies dePending on the handler.
      *
      * @return list<string> Keys currently present in the store
      */

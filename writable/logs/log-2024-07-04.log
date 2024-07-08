@@ -846,8 +846,8 @@ in SYSTEMPATH\Database\BaseConnection.php on line 688.
 11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 CRITICAL - 2024-07-04 16:36:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`appointment_system`.`appointments`, CONSTRAINT `appointments_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`))
 in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
- 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (\'12\', \'17\', \'2024-07-05T12:06\', \'pending\')')
- 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (\'12\', \'17\', \'2024-07-05T12:06\', \'pending\')')
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (\'12\', \'17\', \'2024-07-05T12:06\', \'Pending\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (\'12\', \'17\', \'2024-07-05T12:06\', \'Pending\')')
  3 SYSTEMPATH\Database\BaseBuilder.php(2332): CodeIgniter\Database\BaseConnection->query('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (:patient_id:, :doctor_id:, :appointment_date:, :status:)', [...], false)
  4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
  5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
@@ -861,9 +861,9 @@ in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
 13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 CRITICAL - 2024-07-04 16:36:14 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`appointment_system`.`appointments`, CONSTRAINT `appointments_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`))
 in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
- 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (\'12\', \'17\', \'2024-07-05T12:06\', \'pending\')', 0)
- 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (\'12\', \'17\', \'2024-07-05T12:06\', \'pending\')')
- 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (\'12\', \'17\', \'2024-07-05T12:06\', \'pending\')')
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (\'12\', \'17\', \'2024-07-05T12:06\', \'Pending\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (\'12\', \'17\', \'2024-07-05T12:06\', \'Pending\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (\'12\', \'17\', \'2024-07-05T12:06\', \'Pending\')')
  4 SYSTEMPATH\Database\BaseBuilder.php(2332): CodeIgniter\Database\BaseConnection->query('INSERT INTO `appointments` (`patient_id`, `doctor_id`, `appointment_date`, `status`) VALUES (:patient_id:, :doctor_id:, :appointment_date:, :status:)', [...], false)
  5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
  6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])

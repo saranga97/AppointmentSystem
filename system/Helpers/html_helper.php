@@ -125,7 +125,7 @@ if (! function_exists('img')) {
             $img .= ' ' . $key . '="' . $value . '"';
         }
 
-        // Prevent passing completed values to stringify_attributes
+        // Prevent passing Completed values to stringify_attributes
         if (is_array($attributes)) {
             unset($attributes['alt'], $attributes['src']);
         }

@@ -66,8 +66,8 @@ INFO - 2024-07-08 10:51:53 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-07-08 10:51:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 10:57:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 10:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-DEBUG - 2024-07-08 10:57:59 --> Appointment Data: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-13T16:27","status":"pending"}
-INFO - 2024-07-08 10:57:59 --> Appointment created successfully: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-13T16:27","status":"pending"}
+DEBUG - 2024-07-08 10:57:59 --> Appointment Data: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-13T16:27","status":"Pending"}
+INFO - 2024-07-08 10:57:59 --> Appointment created successfully: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-13T16:27","status":"Pending"}
 INFO - 2024-07-08 10:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 10:58:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 11:12:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -78,8 +78,8 @@ DEBUG - 2024-07-08 11:12:10 --> User Role: patient
 INFO - 2024-07-08 11:12:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 11:12:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 11:12:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-DEBUG - 2024-07-08 11:12:23 --> Appointment Data: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-09T16:42","status":"pending"}
-INFO - 2024-07-08 11:12:23 --> Appointment created successfully: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-09T16:42","status":"pending"}
+DEBUG - 2024-07-08 11:12:23 --> Appointment Data: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-09T16:42","status":"Pending"}
+INFO - 2024-07-08 11:12:23 --> Appointment created successfully: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-09T16:42","status":"Pending"}
 INFO - 2024-07-08 11:12:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 11:20:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 11:22:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -87,8 +87,8 @@ INFO - 2024-07-08 11:24:34 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-07-08 11:25:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 11:25:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 11:25:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-DEBUG - 2024-07-08 11:25:53 --> Appointment Data: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-11T16:55","status":"pending"}
-INFO - 2024-07-08 11:25:53 --> Appointment created successfully: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-11T16:55","status":"pending"}
+DEBUG - 2024-07-08 11:25:53 --> Appointment Data: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-11T16:55","status":"Pending"}
+INFO - 2024-07-08 11:25:53 --> Appointment created successfully: {"patient_id":"16","doctor_id":"17","appointment_date":"2024-07-11T16:55","status":"Pending"}
 INFO - 2024-07-08 11:25:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 11:26:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 11:26:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -285,3 +285,4 @@ INFO - 2024-07-08 12:13:16 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-07-08 12:13:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 12:14:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-08 12:14:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-08 12:17:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

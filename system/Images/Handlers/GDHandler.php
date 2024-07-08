@@ -394,7 +394,7 @@ class GDHandler extends BaseHandler
         }
 
         // Set font width and height
-        // These are calculated differently depending on
+        // These are calculated differently dePending on
         // whether we are using the true type font or not
         if (! empty($options['fontPath'])) {
             if (function_exists('imagettfbbox')) {

@@ -17,7 +17,7 @@ return [
     'altCommandSingular' => 'Did you mean this?',
     'commandNotFound'    => 'Command "{0}" not found.',
     'generator'          => [
-        'cancelOperation' => 'Operation has been cancelled.',
+        'cancelOperation' => 'Operation has been Cancelled.',
         'className'       => [
             'cell'       => 'Cell class name',
             'command'    => 'Command class name',

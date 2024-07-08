@@ -47,7 +47,7 @@
                                 <td><?= $appointment['appointment_date']; ?></td>
                                 <td><?= $appointment['status']; ?></td>
                                 <td>
-                                    <?php if ($appointment['status'] == 'pending'): ?>
+                                    <?php if ($appointment['status'] == 'Pending'): ?>
                                         <form action="<?= base_url('/patient/cancel_appointment/' . $appointment['id']); ?>" method="post" class="mb-0">
                                             <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
                                         </form>

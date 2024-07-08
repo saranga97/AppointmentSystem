@@ -859,7 +859,7 @@ if (! function_exists('redirect')) {
 
 if (! function_exists('_solidus')) {
     /**
-     * Generates the solidus character (`/`) depending on the HTML5 compatibility flag in `Config\DocTypes`
+     * Generates the solidus character (`/`) dePending on the HTML5 compatibility flag in `Config\DocTypes`
      *
      * @param DocTypes|null $docTypesConfig New config. For testing purpose only.
      *

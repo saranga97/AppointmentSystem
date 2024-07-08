@@ -101,7 +101,7 @@ class ArrayLimitPlugin extends AbstractPlugin
 
         foreach ($obj->value->contents as $child) {
             // We only bother setting the correct depth for the first child,
-            // any deeper children should be cancelled by the depth limit
+            // any deeper children should be Cancelled by the depth limit
             $child->depth = $o->depth + 1;
             $this->recalcDepthLimit($child);
         }

@@ -24,7 +24,7 @@ class ErrorlogHandler extends BaseHandler
 {
     /**
      * Message is sent to PHP's system logger, using the Operating System's
-     * system logging mechanism or a file, depending on what the error_log
+     * system logging mechanism or a file, dePending on what the error_log
      * configuration directive is set to.
      */
     public const TYPE_OS = 0;

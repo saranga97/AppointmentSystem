@@ -68,7 +68,7 @@ class Header implements Stringable
 
     /**
      * Gets the raw value of the header. This may return either a string
-     * or an array, depending on whether the header has multiple values or not.
+     * or an array, dePending on whether the header has multiple values or not.
      *
      * @return array<int|string, array<string, string>|string>|string
      */

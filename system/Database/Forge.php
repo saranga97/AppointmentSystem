@@ -991,7 +991,7 @@ class Forge
     }
 
     /**
-     * Depending on the unsigned property value:
+     * DePending on the unsigned property value:
      *
      *    - TRUE will always set $field['unsigned'] to 'UNSIGNED'
      *    - FALSE will always set $field['unsigned'] to ''

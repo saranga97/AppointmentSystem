@@ -548,7 +548,7 @@ class CodeIgniter
     }
 
     /**
-     * You can load different configurations depending on your
+     * You can load different configurations dePending on your
      * current environment. Setting the environment also influences
      * things like logging and error reporting.
      *

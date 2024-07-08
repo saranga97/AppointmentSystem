@@ -71,8 +71,8 @@ class PatientController extends BaseController
     public function cancelAppointment($id)
     {
         $appointmentModel = new AppointmentModel();
-        $appointmentModel->update($id, ['status' => 'cancelled']);
-        return redirect()->to('/patient/appointments')->with('message', 'Appointment cancelled successfully');
+        $appointmentModel->update($id, ['status' => 'Cancelled']);
+        return redirect()->to('/patient/appointments')->with('message', 'Appointment Cancelled successfully');
     }
 
     public function enquiries()
