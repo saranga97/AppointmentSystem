@@ -133,4 +133,85 @@ class PatientController extends BaseController
         $query = $builder->get();
         return $query->getResultArray();
     }
+
+    // public function downloadInvoice($treatmentId)
+    // {
+    //     $treatmentModel = new TreatmentModel();
+    //     $treatment = $treatmentModel->find($treatmentId);
+
+    //     if (!$treatment) {
+    //         return redirect()->back()->with('error', 'Treatment not found.');
+    //     }
+
+    //     $data = [
+    //         'treatment' => $treatment,
+    //         'patient' => session()->get('username')
+    //     ];
+
+    //     // Generate the HTML view of the invoice
+    //     $html = view('patient/invoice', $data);
+
+    //     // Load the Dompdf library
+    //     require_once APPPATH . 'ThirdParty/dompdf/autoload.inc.php';
+    //     $dompdf = new \Dompdf\Dompdf();
+
+    //     // Load HTML content
+    //     $dompdf->loadHtml($html);
+
+    //     // (Optional) Setup the paper size and orientation
+    //     $dompdf->setPaper('A4', 'portrait');
+
+    //     // Render the HTML as PDF
+    //     $dompdf->render();
+
+    //     // Output the generated PDF (1 = download and 0 = preview)
+    //     $dompdf->stream('invoice_' . $treatmentId . '.pdf', array("Attachment" => 1));
+    // }
+
+    public function downloadInvoice($treatmentId)
+    {
+        $treatmentModel = new TreatmentModel();
+        $treatment = $treatmentModel->find($treatmentId);
+
+        if (!$treatment) {
+            return redirect()->back()->with('error', 'Treatment not found.');
+        }
+
+        $data = [
+            'treatment' => $treatment,
+            'patient' => session()->get('username')
+        ];
+
+        // Generate the HTML view of the invoice
+        $html = view('patient/invoice', $data);
+
+        // Load the TCPDF library
+        require_once APPPATH . 'ThirdParty/tcpdf/tcpdf.php';
+
+        // Create a new PDF document
+        $pdf = new \TCPDF();
+
+        // Set document information
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Your Name');
+        $pdf->SetTitle('Invoice');
+        $pdf->SetSubject('Invoice for Treatment');
+        $pdf->SetKeywords('TCPDF, PDF, invoice, treatment');
+
+        // Remove default header and footer
+        $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+
+        // Set margins
+        $pdf->SetMargins(15, 15, 15);
+
+        // Add a page
+        $pdf->AddPage();
+
+        // Set some content to print
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        // Close and output PDF document
+        $pdf->Output('invoice_' . $treatmentId . '.pdf', 'D');
+    }
 }

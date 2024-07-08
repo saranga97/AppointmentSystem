@@ -92,6 +92,8 @@ $routes->group('patient', ['filter' => 'auth'], function ($routes) {
     $routes->post('send_enquiry', 'PatientController::sendEnquiry');
     $routes->get('wound_care_knowledge', 'PatientController::woundCareKnowledge');
     $routes->get('recommendations', 'PatientController::recommendations');
+    $routes->get('download_invoice/(:num)', 'PatientController::downloadInvoice/$1');
+
 });
 
 // Routes for Appointments

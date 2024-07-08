@@ -57,6 +57,9 @@
                                     <?= $treatment['payment_status'] == 'paid' ? 'disabled' : ''; ?>>
                                 <?= $treatment['payment_status'] == 'paid' ? 'Paid' : 'Proceed Payment'; ?>
                             </button>
+                            <?php if ($treatment['payment_status'] == 'paid'): ?>
+                                <a href="<?= base_url('/patient/download_invoice/' . $treatment['id']); ?>" class="btn btn-secondary btn-sm">Download Invoice</a>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -109,7 +112,7 @@
 
     <!-- jQuery and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -131,11 +134,15 @@
                     success: function(response) {
                         if (response.status == 'success') {
                             $('.payment-modal').modal('hide');
-                            var treatmentId = $('#treatment_id').val();
-                            var button = $('.btn-payment[data-id="' + treatmentId + '"]');
-                            button.removeClass('btn-payment').addClass('paid').text('Paid').attr('disabled', true);
-                        } else {
-                            console.log("Payment failed.");
+                            $('.btn-payment[data-id="' + $('#treatment_id').val() + '"]')
+                                .removeClass('btn-payment')
+                                .addClass('paid')
+                                .text('Paid')
+                                .attr('disabled', true);
+
+                            // Append Download Invoice button
+                            var invoiceButton = '<a href="<?= base_url('/patient/download_invoice/'); ?>/' + $('#treatment_id').val() + '" class="btn btn-secondary btn-sm">Download Invoice</a>';
+                            $('.btn-payment[data-id="' + $('#treatment_id').val() + '"]').after(invoiceButton);
                         }
                     },
                     error: function(xhr, status, error) {
