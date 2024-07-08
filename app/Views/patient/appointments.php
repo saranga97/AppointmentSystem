@@ -31,18 +31,32 @@
         <div class="appointments-container">
             <h2 class="text-center">Appointments</h2>
             <?php if (!empty($appointments)): ?>
-                <ul class="list-unstyled">
-                    <?php foreach ($appointments as $appointment): ?>
-                        <li class="appointment-item">
-                            <span><?= $appointment['appointment_date']; ?> - <?= $appointment['status']; ?></span>
-                            <?php if ($appointment['status'] == 'scheduled'): ?>
-                                <form action="<?= base_url('/patient/cancel_appointment/' . $appointment['id']); ?>" method="post" class="mb-0">
-                                    <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
-                                </form>
-                            <?php endif; ?>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Doctor Name</th>
+                            <th>Appointment Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($appointments as $appointment): ?>
+                            <tr>
+                                <td><?= $appointment['doctor_name']; ?></td>
+                                <td><?= $appointment['appointment_date']; ?></td>
+                                <td><?= $appointment['status']; ?></td>
+                                <td>
+                                    <?php if ($appointment['status'] == 'pending'): ?>
+                                        <form action="<?= base_url('/patient/cancel_appointment/' . $appointment['id']); ?>" method="post" class="mb-0">
+                                            <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
+                                        </form>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             <?php else: ?>
                 <p class="text-center">No appointments found.</p>
             <?php endif; ?>

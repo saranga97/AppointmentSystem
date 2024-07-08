@@ -32,9 +32,10 @@
                             <td>
                                 <form action="<?= base_url('/doctor/update_appointment_status/' . $appointment['id']); ?>" method="post">
                                     <select name="status" onchange="this.form.submit()">
-                                        <option value="scheduled" <?= $appointment['status'] == 'scheduled' ? 'selected' : ''; ?>>Scheduled</option>
-                                        <option value="completed" <?= $appointment['status'] == 'completed' ? 'selected' : ''; ?>>Completed</option>
-                                        <option value="cancelled" <?= $appointment['status'] == 'cancelled' ? 'selected' : ''; ?>>Cancelled</option>
+                                        <option value="Pending" <?= $appointment['status'] == 'pending' ? 'selected' : ''; ?>>Pending</option>
+                                        <option value="Approved" <?= $appointment['status'] == 'approved' ? 'selected' : ''; ?>>Approved</option>
+                                        <option value="Completed" <?= $appointment['status'] == 'completed' ? 'selected' : ''; ?>>Completed</option>
+                                        <option value="Cancelled" <?= $appointment['status'] == 'cancelled' ? 'selected' : ''; ?>>Cancelled</option>
                                     </select>
                                 </form>
                             </td>

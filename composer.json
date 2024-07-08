@@ -14,7 +14,8 @@
         "ext-intl": "*",
         "ext-mbstring": "*",
         "laminas/laminas-escaper": "^2.13",
-        "psr/log": "^3.0"
+        "psr/log": "^3.0",
+        "dompdf/dompdf": "^1.0"
     },
     "require-dev": {
         "codeigniter/coding-standard": "^1.7",

@@ -38,7 +38,7 @@ class AppointmentsController extends BaseController
             'patient_id' => $patientId,
             'doctor_id' => $this->request->getPost('doctor_id'),
             'appointment_date' => $this->request->getPost('appointment_date'),
-            'status' => 'scheduled'
+            'status' => 'pending'
         ];
 
         if ($appointmentModel->insert($data)) {

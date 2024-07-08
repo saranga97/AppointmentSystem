@@ -7,6 +7,7 @@ use App\Models\PatientModel;
 use App\Models\InventoryModel;
 use App\Models\TreatmentModel;
 use App\Models\UserModel;
+use App\Models\NotificationModel;
 
 class DoctorController extends BaseController
 {
@@ -47,10 +48,24 @@ class DoctorController extends BaseController
     public function updateAppointmentStatus($id)
     {
         $appointmentModel = new AppointmentModel();
-        $data = [
-            'status' => $this->request->getPost('status')
-        ];
-        $appointmentModel->update($id, $data);
+        $notificationModel = new NotificationModel();
+        $userModel = new UserModel();
+
+        $status = $this->request->getPost('status');
+        $appointmentModel->update($id, ['status' => $status]);
+
+        // Get patient and doctor details
+        $appointment = $appointmentModel->find($id);
+        $doctor = $userModel->find(session()->get('user_id'));
+        $patientId = $appointment['patient_id'];
+
+        // Create a notification for the patient
+        $message = "Your appointment has been $status by Dr. " . $doctor['username'];
+        $notificationModel->insert([
+            'user_id' => $patientId,
+            'message' => $message,
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
 
         return redirect()->to('/doctor/appointments')->with('message', 'Appointment status updated successfully');
     }

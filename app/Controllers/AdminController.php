@@ -7,7 +7,8 @@ use App\Models\AppointmentModel;
 use App\Models\InventoryModel;
 use App\Models\WoundCareModel;
 use App\Models\SystemStatusModel;
-
+use App\Models\PatientModel;
+use App\Models\TreatmentModel;
 
 class AdminController extends BaseController
 {
@@ -43,6 +44,33 @@ class AdminController extends BaseController
     //     return $systemStatusModel->getStatus();
     // }
     
+    public function patients()
+    {
+        $patientModel = new PatientModel();
+        $data['patients'] = $patientModel->findAll();
+        return view('admin/patients', $data);
+    }
+
+    public function patientRecords($patient_id)
+    {
+        $treatmentModel = new TreatmentModel();
+        $userModel = new UserModel();
+
+        // Fetch patient details
+        $patientModel = new PatientModel();
+        $data['patient'] = $patientModel->find($patient_id);
+
+        // Fetch treatments and corresponding doctor names
+        $treatments = $treatmentModel->where('patient_id', $patient_id)->findAll();
+        foreach ($treatments as &$treatment) {
+            $doctor = $userModel->find($treatment['doctor_id']);
+            $treatment['doctor_name'] = $doctor['username'];
+        }
+        $data['treatments'] = $treatments;
+
+        return view('admin/patient_records', $data);
+    }
+
 
     public function addDoctor()
     {

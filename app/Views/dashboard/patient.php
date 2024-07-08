@@ -37,6 +37,7 @@
             <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/appointments'); ?>">View and Cancel Appointments</a>
             <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/enquiries'); ?>">Send Enquiries</a>
             <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/wound_care_knowledge'); ?>">Update Knowledge on Wound Care</a>
+            <a class="nav-link bg-primary text-white mb-2 p-3" href="<?= base_url('/patient/notifications'); ?>">View Notifications</a> <!-- New Link -->
             <a class="nav-link bg-danger text-white mb-2 p-3" href="<?= base_url('/auth/logout'); ?>">Logout</a>
         </nav>
     </div>

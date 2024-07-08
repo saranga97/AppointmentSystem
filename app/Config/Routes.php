@@ -37,6 +37,8 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('delete_wound_care/(:any)', 'AdminController::deleteWoundCare/$1');  // Delete a wound care session
     $routes->get('toggle_system_status', 'AdminController::toggleSystemStatus');
     $routes->post('toggle_system_status', 'AdminController::toggleSystemStatus');
+    $routes->get('patients', 'AdminController::patients');
+    $routes->get('patient_records/(:num)', 'AdminController::patientRecords/$1');
 });
 
 
@@ -56,13 +58,24 @@ $routes->group('doctor', ['filter' => 'auth'], function ($routes) {
 
 // Routes for Assistant
 $routes->group('assistant', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'AssistantDashboardController::index');
+    $routes->get('/', 'AssistantController::appointments');
     $routes->get('appointments', 'AssistantController::appointments');
+    $routes->get('edit_appointment/(:num)', 'AssistantController::editAppointment/$1');
+    $routes->post('update_appointment/(:num)', 'AssistantController::updateAppointment/$1');
+    $routes->get('delete_appointment/(:num)', 'AssistantController::deleteAppointment/$1');
     $routes->get('events', 'AssistantController::events');
+    $routes->post('add_event', 'AssistantController::addEvent');
     $routes->get('inventories', 'AssistantController::inventories');
+    $routes->post('add_inventory', 'AssistantController::addInventory');
+    $routes->post('edit_inventory/(:any)', 'AssistantController::editInventory/$1');
+    $routes->get('delete_inventory/(:any)', 'AssistantController::deleteInventory/$1');
     $routes->get('reports', 'AssistantController::reports');
-    // Add more routes as needed for assistant functionalities
+    $routes->post('add_report', 'AssistantController::addReport');
+    $routes->post('edit_report/(:num)', 'AssistantController::editReport/$1');  
+    $routes->post('update_report/(:num)', 'AssistantController::updateReport/$1');
+    $routes->get('download_report/(:num)', 'AssistantController::downloadReport/$1');
 });
+
 
 // Routes for Patient
 $routes->group('patient', ['filter' => 'auth'], function ($routes) {
@@ -74,6 +87,7 @@ $routes->group('patient', ['filter' => 'auth'], function ($routes) {
     $routes->get('wound_dressing_alerts', 'PatientController::woundDressingAlerts');
     $routes->get('appointments', 'PatientController::appointments');
     $routes->post('cancel_appointment/(:num)', 'PatientController::cancelAppointment/$1');
+    $routes->get('notifications', 'PatientController::notifications');
     $routes->get('enquiries', 'PatientController::enquiries');
     $routes->post('send_enquiry', 'PatientController::sendEnquiry');  // Route for sending enquiry
     $routes->get('wound_care_knowledge', 'PatientController::woundCareKnowledge');
@@ -85,9 +99,6 @@ $routes->group('appointments', ['filter' => 'auth'], function ($routes) {
     $routes->get('create', 'AppointmentsController::create');
     $routes->post('store', 'AppointmentsController::store');
 });
-
-
-
 
 
 // Add additional routes for other functionalities based on your project requirements

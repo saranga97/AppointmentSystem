@@ -35,6 +35,7 @@
             <a href="<?= base_url('/admin/manage_inventories'); ?>" class="btn btn-primary">Manage Inventory</a>
             <a href="<?= base_url('/admin/wound_care'); ?>" class="btn btn-primary">Upload Wound Care Sessions</a>
             <a href="<?= base_url('/admin/toggle_system_status'); ?>" class="btn btn-warning">Toggle System Status</a>
+            <a href="<?= base_url('/admin/patients'); ?>" class="btn btn-primary">Track Patients</a>
             <a href="<?= base_url('/auth/logout'); ?>" class="btn btn-danger">Logout</a>
         </div>
     </div>
